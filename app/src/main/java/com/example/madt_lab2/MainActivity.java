@@ -16,16 +16,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner OptionDrop;
-    private EditText InputText;
-    private TextView CharCount;
+    private EditText inputText;
+    private TextView charCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.InputText = findViewById(R.id.InputText);
+        this.inputText = findViewById(R.id.InputText);
         this.OptionDrop = (Spinner) findViewById(R.id.OptionDrop);
-        this.CharCount = findViewById(R.id.CharCount);
+        this.charCount = findViewById(R.id.CharCount);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Option_Array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void GetCount(View view) {
-        String UserInputText = this.InputText.getText().toString();
-        if (UserInputText.matches(""))
+    public void getCount(View view) {
+        String textString = this.inputText.getText().toString();
+        if (textString.matches(""))
         {
             Toast.makeText(this, "You did not input any text", Toast.LENGTH_LONG).show();
         }
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
         {
             if(OptionDrop.getSelectedItem().toString().equalsIgnoreCase(getResources().getString(R.string.char_selection)))
             {
-                String InputTextStr = this.InputText.getText().toString();
-                this.CharCount.setText("Chars Count:" + Counter.getCharLength(InputTextStr));
+                String inputString = this.inputText.getText().toString();
+                this.charCount.setText("Chars Count:" + Counter.getCharLength(inputString));
 
             }
             else
             {
-                String UserInputWord = InputText.getText().toString();
-                CharCount.setText("Words: " + Counter.getWordsCount(UserInputWord));
+                String userWord = inputText.getText().toString();
+                charCount.setText("Words: " + Counter.getWordsCount(userWord));
             }
         }
 
