@@ -35,7 +35,7 @@
         android:layout_marginEnd="265dp"
         android:layout_marginRight="265dp"
         android:text="Count Chars"
-        android:onClick="GetCount"
+        android:onClick="getCount"
         tools:layout_editor_absoluteX="29dp"
         tools:layout_editor_absoluteY="268dp" />
 

@@ -11,7 +11,7 @@ public class Counter
 
     public static int getWordsCount(String text)
     {
-        text = text.replace("\n", " ");
+        text = text.replace(".", "").replace(",", "");
         String[] textArray = text.split(" ");
 
         return textArray.length;
